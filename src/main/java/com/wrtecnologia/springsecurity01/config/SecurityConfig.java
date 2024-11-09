@@ -19,15 +19,10 @@ public class SecurityConfig {
                 .authorizeHttpRequests(
                         authorizeConfig -> {
                             authorizeConfig.requestMatchers("/public").permitAll();
-                            // authorizeConfig.requestMatchers("/logout").permitAll(); Logout screen default do Oauth2
-
-                            // Permite acesso ao Swagger UI sem login
-                            authorizeConfig.requestMatchers("/swagger-ui/**", "/v3/api-docs", "/swagger-ui/index.html").permitAll();
-
-                            authorizeConfig.anyRequest().authenticated(); // .permitAll();
-
+                            authorizeConfig.requestMatchers("/swagger-ui/**", "/v3/api-docs").permitAll();
+                            authorizeConfig.anyRequest().authenticated();
                         })
-                // .formLogin(Customizer.withDefaults()) //Login screen default do Oauth2
+                /** TODO .formLogin(Customizer.withDefaults()) //Login screen default do Oauth2 */
                 .oauth2Login(
                         Customizer.withDefaults()).oauth2ResourceServer(oauth2 -> oauth2.jwt(jwt -> {
                             JwtAuthenticationConverter jwtAuthenticationConverter = new JwtAuthenticationConverter();

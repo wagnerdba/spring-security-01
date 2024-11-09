@@ -14,9 +14,9 @@ public class OpenApiConfig {
     public OpenAPI customOpenAPI() {
         return new OpenAPI()
                 .info(new Info()
-                        .title("API - OAuth2 com JWT e cookie")
+                        .title("OAuth2 com JWT - Spring Boot 3 - Google API Authentication")
                         .version("1.0")
-                        .description("OAuth 2 - Integração a Google API (login)")
+                        .description("OAuth 2 - Integração à Google API, autenticação com usuário e senha do google")
                 );
     }
 }
